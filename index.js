@@ -232,6 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // -----------------------------PUSH BUTTONS----------------------------------------//
 const a = [];
 document.addEventListener('keydown', (event) => {
+  // ----------------------------------------------------------------------WAS ERRORS
+  if (!buttonsCode.includes(event.code)) {
+    return;
+  }
   const text = document.querySelector('.textarea');
   if (event.code === 'CapsLock') {
     languageUp ? languageUp = false : languageUp = true;
@@ -273,6 +277,10 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('keyup', (event) => {
+  // ---------------------------------------------------------------------- WAS ERRORS
+  if (!buttonsCode.includes(event.code)) {
+    return;
+  }
   if (event.code === 'CapsLock') {
     buttonList[buttonsCode.indexOf(event.code)].classList.toggle('pressed');
   } else if (event.key === 'Shift') {
