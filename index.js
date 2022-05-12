@@ -293,6 +293,17 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
+function runOnKeysMouse(func) {
+  const pressed = new Set();
+  document.addEventListener('click', (event) => {
+    if (event.target.innerHTML === 'Shift' || event.target.innerHTML === 'Alt') { pressed.add(event.target.innerHTML); }
+    if (pressed.size === 2) {
+      func();
+      pressed.clear();
+    }
+  });
+}
+runOnKeysMouse(changeLanguage);
 // ------------------------------CLICK ---------------------//
 
 // eslint-disable-next-line no-shadow
